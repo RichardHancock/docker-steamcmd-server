@@ -24,13 +24,15 @@ if [ "${USERNAME}" == "" ]; then
         ${STEAMCMD_DIR}/steamcmd.sh \
         +login anonymous \
         +force_install_dir ${SERVER_DIR} \
-        +app_update ${GAME_ID} validate \
+        +app_update ${GAME_ID} \
+        -beta linux_server_headless validate \
         +quit
     else
         ${STEAMCMD_DIR}/steamcmd.sh \
         +login anonymous \
         +force_install_dir ${SERVER_DIR} \
         +app_update ${GAME_ID} \
+        -beta linux_server_headless \
         +quit
     fi
 else
@@ -39,30 +41,23 @@ else
         ${STEAMCMD_DIR}/steamcmd.sh \
         +login ${USERNAME} ${PASSWRD} \
         +force_install_dir ${SERVER_DIR} \
-        +app_update ${GAME_ID} validate \
+        +app_update ${GAME_ID} \
+        -beta linux_server_headless validate \
         +quit
     else
         ${STEAMCMD_DIR}/steamcmd.sh \
         +login ${USERNAME} ${PASSWRD} \
         +force_install_dir ${SERVER_DIR} \
         +app_update ${GAME_ID} \
+        -beta linux_server_headless \
         +quit
     fi
 fi
 
 echo "---Prepare Server---"
-if [ ! -f ${DATA_DIR}/.steam/sdk32/steamclient.so ]; then
-	if [ ! -d ${DATA_DIR}/.steam ]; then
-    	mkdir ${DATA_DIR}/.steam
-    fi
-	if [ ! -d ${DATA_DIR}/.steam/sdk32 ]; then
-    	mkdir ${DATA_DIR}/.steam/sdk32
-    fi
-    cp -R ${STEAMCMD_DIR}/linux32/* ${DATA_DIR}/.steam/sdk32/
-fi
 chmod -R ${DATA_PERM} ${DATA_DIR}
 echo "---Server ready---"
 
 echo "---Start Server---"
 cd ${SERVER_DIR}
-${SERVER_DIR}/srcds_run -game ${GAME_NAME} ${GAME_PARAMS} -console +port ${GAME_PORT}
+${SERVER_DIR}/FC_Linux_Universal.x86_64

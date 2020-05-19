@@ -3,12 +3,13 @@ FROM ich777/debian-baseimage
 LABEL maintainer="admin@minenet.at"
 
 RUN apt-get update && \
-	apt-get -y install --no-install-recommends lib32gcc1 lib32stdc++6 lib32stdc++6 && \
+	apt-get -y install --no-install-recommends lib32gcc1 && \
 	rm -rf /var/lib/apt/lists/*
 
 ENV DATA_DIR="/serverdata"
 ENV STEAMCMD_DIR="${DATA_DIR}/steamcmd"
 ENV SERVER_DIR="${DATA_DIR}/serverfiles"
+ENV	CONFIG_DIR=""
 ENV GAME_ID="template"
 ENV GAME_NAME="template"
 ENV GAME_PARAMS="template"
