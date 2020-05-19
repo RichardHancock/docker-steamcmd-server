@@ -56,6 +56,10 @@ fi
 
 echo "---Prepare Server---"
 chmod -R ${DATA_PERM} ${DATA_DIR}
+
+echo "---Checking for old logs and removing---"
+	find ${SERVER_DIR} -name "FortressCraftInit.log" -exec rm -f {} \;
+	find ${CONFIG_DIR} -name "player.log" -exec rm -f {} \;
 echo "---Server ready---"
 
 echo "---Start Server---"
