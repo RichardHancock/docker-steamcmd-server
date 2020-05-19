@@ -67,5 +67,5 @@ cd ${SERVER_DIR}
 screen -S FortressCraft -L -Logfile FortressCraftInit.log -d -m ${SERVER_DIR}/FC_Linux_Universal.x86_64 -batchmode
 
 echo "---Waiting For Log To Be Created---"
-sleep 15
+sleep 60
 tail -f ${CONFIG_DIR}/player.log ${SERVER_DIR}/FortressCraftInit.log
