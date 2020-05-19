@@ -60,4 +60,6 @@ echo "---Server ready---"
 
 echo "---Start Server---"
 cd ${SERVER_DIR}
-${SERVER_DIR}/FC_Linux_Universal.x86_64 -batchmode
+screen -S FortressCraft -L -Logfile FortressCraftInit.log -d -m ${SERVER_DIR}/FC_Linux_Universal.x86_64 -batchmode
+sleep 2
+tail -f ${CONFIG_DIR}/player.log ${SERVER_DIR}/FortressCraftInit.log
