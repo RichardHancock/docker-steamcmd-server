@@ -59,7 +59,7 @@ chmod -R ${DATA_PERM} ${DATA_DIR}
 
 echo "---Checking for old logs and removing---"
 	find ${SERVER_DIR} -name "FortressCraftInit.log" -exec rm -f {} \;
-	find ${CONFIG_DIR} -name "player.log" -exec rm -f {} \;
+	find ${CONFIG_DIR} -name "Player.log" -exec rm -f {} \;
 echo "---Server ready---"
 
 echo "---Start Server---"
@@ -67,5 +67,5 @@ cd ${SERVER_DIR}
 screen -S FortressCraft -L -Logfile FortressCraftInit.log -d -m ${SERVER_DIR}/FC_Linux_Universal.x86_64 -batchmode
 
 echo "---Waiting For Log To Be Created---"
-sleep 60
-tail -f ${CONFIG_DIR}/player.log ${SERVER_DIR}/FortressCraftInit.log
+sleep 5
+tail -f ${CONFIG_DIR}/Player.log ${SERVER_DIR}/FortressCraftInit.log
