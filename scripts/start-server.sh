@@ -60,4 +60,4 @@ echo "---Server ready---"
 
 echo "---Start Server---"
 cd ${SERVER_DIR}
-${SERVER_DIR}/FC_Linux_Universal.x86_64
+${SERVER_DIR}/FC_Linux_Universal.x86_64 -batchmode
